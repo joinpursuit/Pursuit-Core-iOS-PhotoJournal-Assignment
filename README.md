@@ -4,14 +4,14 @@ PhotoJournal app uses the user's camera or photo library to create photo journal
 ## Requirements: 
 
 - use a collection view to display photo journals
-- first view controller consists on a bottom toolbar that has an "+" button
+- first view controller consists of a bottom toolbar that has an "+" button
 - when the user presses on the "+" button a modal view controller is presented 
 - this modal view controller has a textview, an image view, and a bottom toolbar
-- the bottom toolbar has a "Photo Library" uibarbuttonitem and "cameara" button 
-- if the user has an iPhone device, pressing on the cameara should allow them to take a photo for their journal 
-- the modal view controller alos has a cancel and save uibarbuttonitem in the top toolbar
+- the bottom toolbar has a "Photo Library" uibarbuttonitem and "cameara" uibarbuttonitem 
+- if the user has an iPhone device, pressing on the camera should allow them to take a photo for their journal 
+- the modal view controller also has a cancel and save uibarbuttonitem in the top toolbar
 - pressing save should save the photo journal to the uers's collection of photo journals
-- upon pressing save in the modal view controller the view gets dismissed and shows the user the recently saved photo journal along with all other photo journals presently saved. 
+- upon pressing save in the modal view controller, the view gets dismissed and shows the user their recently saved photo journal. 
 
 ## Photo Journal modifications 
 
