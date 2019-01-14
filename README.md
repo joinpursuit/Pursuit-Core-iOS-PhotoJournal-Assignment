@@ -1,6 +1,12 @@
 # Pursuit-Core-iOS-PhotoJournal-Assignment
 PhotoJournal app uses the user's camera or photo library to create photo journals. App persist user's photo journals to the documents directory via FileManager.
 
+## Github
+
+- create your own repo
+- commit often to your repo
+- submit your final repo link to canvas
+
 ## Requirements: 
 
 - use a collection view to display photo journals
