@@ -22,5 +22,5 @@ PhotoJournal app uses the user's camera or photo library to create photo journal
 ## Sample gif of completed Photo Journal 
 
 <p align="center">
-  <img src="" height="" width="" />
+  <img src="https://github.com/joinpursuit/Pursuit-Core-iOS-PhotoJournal-Assignment/blob/master/Images/photo-journal.gif" height="700" width="354" />
 <p>
