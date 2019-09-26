@@ -39,7 +39,7 @@ Build a PhotoJournal app that uses the user's camera or photo library to create 
 
 ## Rubric
 
-![photoJournalRubric](./photoJournalRubric.png)
+![photoJournalRubric](./images/photoJournalRubric.png)
 
 ## Sample gif of completed Photo Journal 
 
