@@ -28,9 +28,14 @@ Build a PhotoJournal app that uses the user's camera or photo library to create 
 - The bottom toolbar should have two Bar Button Items: "Photo Library" and "Camera"
 - Pressing on the camera should allow them to take a photo for their journal (Note, this doesn't work on simulator)
 - The View Controller should also have `cancel` and `save` Bar Button Items in the top toolbar
-- Pressing save should save the photo journal to the uers's collection of photo journals
+- Pressing save should save the photo journal to the uers's collection of photo journals using FileManager
 - Pressing save should dismiss the View Controller and shows the user the collection of all PhotoJournal Entries. 
 
+### Settings VC
+
+- Include an option for setting the scroll direction of the Collection View
+- Include an option for setting the background color
+- All settings should be persisted to UserDefaults
 
 ## Sample gif of completed Photo Journal 
 
