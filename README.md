@@ -1,5 +1,6 @@
 # Pursuit-Core-iOS-PhotoJournal-Assignment
-PhotoJournal app uses the user's camera or photo library to create photo journals. App persist user's photo journals to the documents directory via FileManager.
+
+Build a PhotoJournal app that uses the user's camera or photo library to create photo journals. Your app should persist the user's photo journals to the documents directory via FileManager.
 
 ## Github
 
@@ -9,21 +10,27 @@ PhotoJournal app uses the user's camera or photo library to create photo journal
 
 ## Requirements: 
 
-- use a collection view to display photo journals
-- first view controller consists of a bottom toolbar that has an "+" button
-- when the user presses on the "+" button a modal view controller is presented 
-- this modal view controller has a textview, an image view, and a bottom toolbar
-- the bottom toolbar has a "Photo Library" uibarbuttonitem and "cameara" uibarbuttonitem 
-- if the user has an iPhone device, pressing on the camera should allow them to take a photo for their journal 
-- the modal view controller also has a cancel and save uibarbuttonitem in the top toolbar
-- pressing save should save the photo journal to the uers's collection of photo journals
-- upon pressing save in the modal view controller, the view gets dismissed and shows the user their recently saved photo journal. 
+### PhotoJournal Entries View Controller
 
-## Photo Journal modifications 
+- Use a collection view to display photo journals
+- The View Controller should have a bottom toolbar with a "+" button
+- Pressing on the "+" button modally presents a View Controller where the user can add a new entry
 
-- the user should be able to delete a photo journal 
-- the user should be able to edit a photo journal 
-- the user should be able to share via the UIActivityViewController a photo journal
+#### PhotoJournal Collection View Cell Actions
+
+- The user should be able to delete a photo journal 
+- The user should be able to edit a photo journal (using the PhotoJournal Entry View Controller)
+- The user should be able to share via the UIActivityViewController a photo journal
+
+### Add PhotoJournal Entry View Controller
+
+- The View Controller should have a Text View, an Image View, and a bottom toolbar
+- The bottom toolbar should have two Bar Button Items: "Photo Library" and "Camera"
+- Pressing on the camera should allow them to take a photo for their journal (Note, this doesn't work on simulator)
+- The View Controller should also have `cancel` and `save` Bar Button Items in the top toolbar
+- Pressing save should save the photo journal to the uers's collection of photo journals
+- Pressing save should dismiss the View Controller and shows the user the collection of all PhotoJournal Entries. 
+
 
 ## Sample gif of completed Photo Journal 
 
