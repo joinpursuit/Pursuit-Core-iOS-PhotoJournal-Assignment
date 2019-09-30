@@ -13,7 +13,7 @@ Build a PhotoJournal app that uses the user's camera or photo library to create 
 ### PhotoJournal Entries View Controller
 
 - Use a collection view to display photo journals.
-- The View Controller should have a bottom toolbar with a "+" button and a geat button.
+- The View Controller should have a bottom toolbar with a "+" button and a gear button.
 - Pressing on the "+" button modally presents a View Controller where the user can add a new entry.
 - Pressing on the gear button modally presents a View Controller where the user can edit their settings.
 
@@ -34,7 +34,7 @@ Build a PhotoJournal app that uses the user's camera or photo library to create 
 - Pressing cancel should also dismiss the View Controller and shows the user the collection of all PhotoJournal Entries, without persisting the new PhotoJournal.
 - Add validations to make sure that the user has entered all necessary information when they hit save.
 
-### Settings VC
+### Settings View Controller
 
 - Include an option for setting the scroll direction of the Collection View.
 - Include an option for setting the background color.
