@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EA4D03E723468E46009FDE81 /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D03E623468E46009FDE81 /* EditPhotoViewController.swift */; };
 		EA4D03E923468E5E009FDE81 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D03E823468E5E009FDE81 /* SettingsViewController.swift */; };
+		EA4D03EB23469451009FDE81 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D03EA23469451009FDE81 /* PersistenceManager.swift */; };
 		EA69D0AA23450AFD00D6E745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0A923450AFD00D6E745 /* AppDelegate.swift */; };
 		EA69D0AC23450AFD00D6E745 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */; };
 		EA69D0AE23450AFD00D6E745 /* PhotoJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0AD23450AFD00D6E745 /* PhotoJournalViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		EA4D03E623468E46009FDE81 /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
 		EA4D03E823468E5E009FDE81 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EA4D03EA23469451009FDE81 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		EA69D0A623450AFD00D6E745 /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69D0A923450AFD00D6E745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		EA69D0D12346403500D6E745 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				EA4D03EA23469451009FDE81 /* PersistenceManager.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				EA69D0AE23450AFD00D6E745 /* PhotoJournalViewController.swift in Sources */,
 				EA69D0AA23450AFD00D6E745 /* AppDelegate.swift in Sources */,
 				EA69D0AC23450AFD00D6E745 /* SceneDelegate.swift in Sources */,
+				EA4D03EB23469451009FDE81 /* PersistenceManager.swift in Sources */,
 				EA4D03E923468E5E009FDE81 /* SettingsViewController.swift in Sources */,
 				EA4D03E723468E46009FDE81 /* EditPhotoViewController.swift in Sources */,
 			);
