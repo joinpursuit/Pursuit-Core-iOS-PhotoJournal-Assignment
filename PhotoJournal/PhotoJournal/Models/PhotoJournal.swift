@@ -9,6 +9,7 @@
 import Foundation
 
 struct PhotoJournal: Codable {
+    let id: Int
     let photoData: Data
     let title: String
     let date: String 
