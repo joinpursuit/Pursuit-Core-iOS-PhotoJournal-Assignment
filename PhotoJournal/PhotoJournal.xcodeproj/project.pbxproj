@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA4D03E723468E46009FDE81 /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D03E623468E46009FDE81 /* EditPhotoViewController.swift */; };
+		EA4D03E923468E5E009FDE81 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D03E823468E5E009FDE81 /* SettingsViewController.swift */; };
 		EA69D0AA23450AFD00D6E745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0A923450AFD00D6E745 /* AppDelegate.swift */; };
 		EA69D0AC23450AFD00D6E745 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */; };
-		EA69D0AE23450AFD00D6E745 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0AD23450AFD00D6E745 /* ViewController.swift */; };
+		EA69D0AE23450AFD00D6E745 /* PhotoJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0AD23450AFD00D6E745 /* PhotoJournalViewController.swift */; };
 		EA69D0B123450AFD00D6E745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69D0AF23450AFD00D6E745 /* Main.storyboard */; };
 		EA69D0B323450B0100D6E745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA69D0B223450B0100D6E745 /* Assets.xcassets */; };
 		EA69D0B623450B0100D6E745 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69D0B423450B0100D6E745 /* LaunchScreen.storyboard */; };
@@ -27,10 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA4D03E623468E46009FDE81 /* EditPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
+		EA4D03E823468E5E009FDE81 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EA69D0A623450AFD00D6E745 /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69D0A923450AFD00D6E745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA69D0AD23450AFD00D6E745 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA69D0AD23450AFD00D6E745 /* PhotoJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoJournalViewController.swift; sourceTree = "<group>"; };
 		EA69D0B023450AFD00D6E745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA69D0B223450B0100D6E745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA69D0B523450B0100D6E745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,12 +83,11 @@
 		EA69D0A823450AFD00D6E745 /* PhotoJournal */ = {
 			isa = PBXGroup;
 			children = (
-				EA69D0A923450AFD00D6E745 /* AppDelegate.swift */,
-				EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */,
-				EA69D0AD23450AFD00D6E745 /* ViewController.swift */,
-				EA69D0AF23450AFD00D6E745 /* Main.storyboard */,
-				EA69D0B223450B0100D6E745 /* Assets.xcassets */,
-				EA69D0B423450B0100D6E745 /* LaunchScreen.storyboard */,
+				EA69D0D12346403500D6E745 /* Persistence */,
+				EA69D0D02346402800D6E745 /* Models */,
+				EA69D0CC23450CBC00D6E745 /* Controllers */,
+				EA69D0CB23450CB600D6E745 /* Views */,
+				EA69D0CD23450CC700D6E745 /* Supporting Files */,
 				EA69D0B723450B0100D6E745 /* Info.plist */,
 			);
 			path = PhotoJournal;
@@ -97,6 +100,49 @@
 				EA69D0C223450B0200D6E745 /* Info.plist */,
 			);
 			path = PhotoJournalTests;
+			sourceTree = "<group>";
+		};
+		EA69D0CB23450CB600D6E745 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA69D0AF23450AFD00D6E745 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EA69D0CC23450CBC00D6E745 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA69D0AD23450AFD00D6E745 /* PhotoJournalViewController.swift */,
+				EA4D03E623468E46009FDE81 /* EditPhotoViewController.swift */,
+				EA4D03E823468E5E009FDE81 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EA69D0CD23450CC700D6E745 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA69D0A923450AFD00D6E745 /* AppDelegate.swift */,
+				EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */,
+				EA69D0B223450B0100D6E745 /* Assets.xcassets */,
+				EA69D0B423450B0100D6E745 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA69D0D02346402800D6E745 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EA69D0D12346403500D6E745 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA69D0AE23450AFD00D6E745 /* ViewController.swift in Sources */,
+				EA69D0AE23450AFD00D6E745 /* PhotoJournalViewController.swift in Sources */,
 				EA69D0AA23450AFD00D6E745 /* AppDelegate.swift in Sources */,
 				EA69D0AC23450AFD00D6E745 /* SceneDelegate.swift in Sources */,
+				EA4D03E923468E5E009FDE81 /* SettingsViewController.swift in Sources */,
+				EA4D03E723468E46009FDE81 /* EditPhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
