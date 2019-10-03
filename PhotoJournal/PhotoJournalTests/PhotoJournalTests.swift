@@ -19,16 +19,34 @@ class PhotoJournalTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    private let exampleOne = PhotoJournal(photoData: Data(), title: "Example One", date: "123")
+    private let exampleTwo = PhotoJournal(photoData: Data(), title: "Example Two", date: "456")
+    
+    private func savePersistence() {
+        
+        do {
+            try TestPersistenceHelper.manager.savePhotoEntry(photo: exampleOne)
+            try TestPersistenceHelper.manager.savePhotoEntry(photo: exampleTwo)
+        } catch {
+            print(error)
+        }
+        
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testLoadPersistence() {
+        savePersistence()
+        
+        var testJournal = [PhotoJournal]()
+        
+        do {
+            testJournal = try TestPersistenceHelper.manager.getPhotoJournal()
+        } catch {
+            print(error)
         }
+        
+        XCTAssertTrue(testJournal[0].title == exampleOne.title, "Expected: \(exampleOne.title), Got: \(testJournal[0].title)")
+        XCTAssertTrue(testJournal[1].title == exampleTwo.title, "Expected: \(exampleTwo.title), Got: \(testJournal[1].title)")
+     
     }
 
 }

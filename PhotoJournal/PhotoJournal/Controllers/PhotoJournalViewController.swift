@@ -13,7 +13,8 @@ class PhotoJournalViewController: UIViewController {
     @IBOutlet weak var photoJournalCollectionView: UICollectionView!
     
     var photoJournal = [PhotoJournal]() {
-        didSet { photoJournalCollectionView.reloadData()
+        didSet {
+            photoJournalCollectionView.reloadData()
         }
     }
     
