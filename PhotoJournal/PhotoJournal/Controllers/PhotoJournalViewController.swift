@@ -10,11 +10,24 @@ import UIKit
 
 class PhotoJournalViewController: UIViewController {
 
+    var photoJournal = [PhotoJournal]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadPhotoJournal()
+    }
 
+    private func loadPhotoJournal() {
+        do {
+            photoJournal = try PhotoPersistenceHelper.manager.getPhotoJournal()
+        } catch {
+            print(error)
+        }
+    }
 
 }
 

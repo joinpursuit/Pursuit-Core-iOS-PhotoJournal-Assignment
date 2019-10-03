@@ -13,13 +13,13 @@ struct PhotoPersistenceHelper {
     
     static let manager = PhotoPersistenceHelper()
     
-    private let persistenceHelper = PersistenceHelper<Photo>(fileName: "photos.plist")
+    private let persistenceHelper = PersistenceHelper<PhotoJournal>(fileName: "PhotoJournal.plist")
     
-    func saveFilm(photo: Photo) throws {
+    func savePhotoEntry(photo: PhotoJournal) throws {
         try persistenceHelper.save(newElement: photo)
     }
     
-    func getFilms() throws -> [Photo] {
+    func getPhotoJournal() throws -> [PhotoJournal] {
         return try persistenceHelper.getObjects()
     }
     
