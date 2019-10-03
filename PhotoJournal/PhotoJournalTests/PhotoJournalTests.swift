@@ -19,6 +19,7 @@ class PhotoJournalTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    private var testJournal = [PhotoJournal]()
     private let exampleOne = PhotoJournal(photoData: Data(), title: "Example One", date: "123")
     private let exampleTwo = PhotoJournal(photoData: Data(), title: "Example Two", date: "456")
     
@@ -34,9 +35,7 @@ class PhotoJournalTests: XCTestCase {
     }
 
     func testLoadPersistence() {
-        savePersistence()
-        
-        var testJournal = [PhotoJournal]()
+//        savePersistence()
         
         do {
             testJournal = try TestPersistenceHelper.manager.getPhotoJournal()
@@ -49,4 +48,14 @@ class PhotoJournalTests: XCTestCase {
      
     }
 
+    func testDeletePersistedObject() {
+        do {
+            try TestPersistenceHelper.manager.deletePhotoJournal(withTitle: exampleOne.title)
+            try TestPersistenceHelper.manager.deletePhotoJournal(withTitle: exampleTwo.title)
+        } catch {
+            print(error)
+        }
+        
+        XCTAssertTrue(testJournal.count == 0, "Expected: 0, Got: \(testJournal.count)")
+    }
 }
