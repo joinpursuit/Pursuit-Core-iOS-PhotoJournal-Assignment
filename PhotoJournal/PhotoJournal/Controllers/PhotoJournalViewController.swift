@@ -10,6 +10,9 @@ import UIKit
 
 class PhotoJournalViewController: UIViewController {
 
+    // TODO: Connect Settings button to SettingsVC
+    
+    
     @IBOutlet weak var photoJournalCollectionView: UICollectionView!
     
     var photoJournal = [PhotoJournal]() {

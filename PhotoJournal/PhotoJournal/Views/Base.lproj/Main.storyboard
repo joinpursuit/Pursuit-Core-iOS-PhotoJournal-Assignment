@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photo Journal-->
+        <!--Photo Journal View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="photoJournalSB" id="BYZ-38-t0r" customClass="PhotoJournalViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,24 +20,24 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="keC-px-x3d">
-                                    <size key="itemSize" width="309" height="313"/>
+                                    <size key="itemSize" width="379" height="313"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="mzk-Vb-jJu" customClass="PhotoJournalCollectionViewCell" customModule="PhotoJournal" customModuleProvider="target">
-                                        <rect key="frame" x="52.5" y="0.0" width="309" height="313"/>
+                                        <rect key="frame" x="17.5" y="0.0" width="379" height="313"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zo3-Br-iH4">
-                                            <rect key="frame" x="0.0" y="0.0" width="309" height="313"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="379" height="313"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rka-Rb-ohd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="309" height="272"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="379" height="272"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1w-7x-81g">
-                                                    <rect key="frame" x="263" y="272" width="46" height="42"/>
+                                                    <rect key="frame" x="333" y="272" width="46" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="46" id="0Nb-ux-fDl"/>
                                                     </constraints>
@@ -45,16 +45,16 @@
                                                     <state key="normal" title="..."/>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-6r-bat">
-                                                    <rect key="frame" x="0.0" y="272" width="253" height="41"/>
+                                                    <rect key="frame" x="0.0" y="272" width="323" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-Ep-vkh">
-                                                            <rect key="frame" x="0.0" y="0.0" width="253" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="323" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pK-zz-DH3">
-                                                            <rect key="frame" x="0.0" y="20.5" width="253" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="20.5" width="323" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Rka-Rb-ohd" secondAttribute="trailing" id="knU-6b-aCw"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="309" height="313"/>
+                                        <size key="customSize" width="379" height="313"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="6pK-zz-DH3" id="JMq-q8-cCn"/>
                                             <outlet property="photoImageView" destination="Rka-Rb-ohd" id="5tm-1w-Ve6"/>
@@ -87,7 +87,11 @@
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hte-sK-hlF"/>
-                                    <barButtonItem systemItem="add" id="rqw-or-uTC"/>
+                                    <barButtonItem systemItem="add" id="rqw-or-uTC">
+                                        <connections>
+                                            <segue destination="ak9-dC-Krh" kind="show" id="ISx-g8-waD"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YoB-At-tO6"/>
                                 </items>
                             </toolbar>
@@ -104,7 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Photo Journal" id="Ixl-HV-pgt">
+                    <navigationItem key="navigationItem" id="Ixl-HV-pgt">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="wIl-aO-oYF">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CqO-rm-7eN">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
@@ -124,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
         </scene>
-        <!--Edit Photo View Controller-->
+        <!--Edit Photo-->
         <scene sceneID="MVj-Qc-f7e">
             <objects>
                 <viewController storyboardIdentifier="editPhotoSB" id="ak9-dC-Krh" customClass="EditPhotoViewController" customModule="PhotoJournal" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,27 +150,6 @@
                                     <constraint firstAttribute="width" secondItem="O5d-lP-Vnr" secondAttribute="height" multiplier="1:1" id="Quj-ow-DVp"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkp-hs-mcu">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Edit Photo" id="zvq-2b-NCW">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="xcu-O0-uZL">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C0s-MM-jVI">
-                                                <rect key="frame" x="20" y="7" width="92" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Cancel"/>
-                                            </button>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="Tjr-Ql-91t">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fzj-Ea-NPl">
-                                                <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Save"/>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n70-9u-5XP">
                                 <rect key="frame" x="0.0" y="88" width="414" height="311"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -179,24 +162,30 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="k9e-lG-VMg" firstAttribute="trailing" secondItem="O5d-lP-Vnr" secondAttribute="trailing" id="1n8-Dn-mNq"/>
-                            <constraint firstItem="Dkp-hs-mcu" firstAttribute="leading" secondItem="k9e-lG-VMg" secondAttribute="leading" id="353-rw-mgP"/>
                             <constraint firstItem="X5F-mu-yOC" firstAttribute="leading" secondItem="k9e-lG-VMg" secondAttribute="leading" id="39l-Kh-g7n"/>
                             <constraint firstItem="X5F-mu-yOC" firstAttribute="trailing" secondItem="k9e-lG-VMg" secondAttribute="trailing" id="6Js-9j-3rs"/>
                             <constraint firstItem="O5d-lP-Vnr" firstAttribute="top" secondItem="n70-9u-5XP" secondAttribute="bottom" id="FnY-ma-CVC"/>
+                            <constraint firstItem="n70-9u-5XP" firstAttribute="top" secondItem="k9e-lG-VMg" secondAttribute="top" id="GYM-Cg-4YR"/>
                             <constraint firstItem="X5F-mu-yOC" firstAttribute="top" secondItem="O5d-lP-Vnr" secondAttribute="bottom" id="HIA-Xy-h7R"/>
-                            <constraint firstItem="Dkp-hs-mcu" firstAttribute="trailing" secondItem="k9e-lG-VMg" secondAttribute="trailing" id="L9x-xD-tgq"/>
-                            <constraint firstItem="n70-9u-5XP" firstAttribute="top" secondItem="Dkp-hs-mcu" secondAttribute="bottom" id="Ps9-5t-zkX"/>
-                            <constraint firstItem="n70-9u-5XP" firstAttribute="top" secondItem="Dkp-hs-mcu" secondAttribute="bottom" id="VmM-Z9-Wif"/>
                             <constraint firstItem="n70-9u-5XP" firstAttribute="leading" secondItem="k9e-lG-VMg" secondAttribute="leading" id="WPu-bL-CbK"/>
                             <constraint firstItem="O5d-lP-Vnr" firstAttribute="leading" secondItem="k9e-lG-VMg" secondAttribute="leading" id="j6D-2x-hl9"/>
                             <constraint firstItem="X5F-mu-yOC" firstAttribute="bottom" secondItem="k9e-lG-VMg" secondAttribute="bottom" id="jFU-ZP-vWS"/>
                             <constraint firstItem="X5F-mu-yOC" firstAttribute="top" secondItem="O5d-lP-Vnr" secondAttribute="bottom" id="lpu-a9-pz8"/>
-                            <constraint firstItem="Dkp-hs-mcu" firstAttribute="top" secondItem="k9e-lG-VMg" secondAttribute="top" id="p7q-Qa-hYT"/>
                             <constraint firstItem="O5d-lP-Vnr" firstAttribute="top" secondItem="n70-9u-5XP" secondAttribute="bottom" id="rPX-1L-RKg"/>
                             <constraint firstItem="k9e-lG-VMg" firstAttribute="trailing" secondItem="n70-9u-5XP" secondAttribute="trailing" id="uF0-Ez-Q8V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k9e-lG-VMg"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Edit Photo" id="t7L-3N-Rjt">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="WfP-ux-fqY"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Tjr-Ql-91t">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fzj-Ea-NPl">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UhN-Kn-GGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
