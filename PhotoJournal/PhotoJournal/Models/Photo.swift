@@ -9,5 +9,5 @@
 import Foundation
 
 struct Photo: Codable {
-    
+    let photoData: Data
 }
