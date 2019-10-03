@@ -26,7 +26,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="mzk-Vb-jJu">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="mzk-Vb-jJu" customClass="PhotoJournalCollectionViewCell" customModule="PhotoJournal" customModuleProvider="target">
                                         <rect key="frame" x="52.5" y="0.0" width="309" height="313"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zo3-Br-iH4">
@@ -75,6 +75,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="309" height="313"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="6pK-zz-DH3" id="JMq-q8-cCn"/>
+                                            <outlet property="photoImageView" destination="Rka-Rb-ohd" id="5tm-1w-Ve6"/>
+                                            <outlet property="titleLabel" destination="0wN-Ep-vkh" id="Inx-TH-C0L"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -111,6 +116,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="photoJournalCollectionView" destination="0zV-XY-TXY" id="Bxr-NR-avg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
