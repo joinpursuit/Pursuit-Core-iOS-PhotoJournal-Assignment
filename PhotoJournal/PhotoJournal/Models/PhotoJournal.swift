@@ -8,6 +8,8 @@
 
 import Foundation
 
-struct Photo: Codable {
+struct PhotoJournal: Codable {
     let photoData: Data
+    let title: String
+    let date: Date
 }
