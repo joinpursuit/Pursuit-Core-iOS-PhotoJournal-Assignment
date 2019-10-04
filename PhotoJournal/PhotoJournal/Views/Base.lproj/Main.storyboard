@@ -41,17 +41,17 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-6r-bat">
-                                                    <rect key="frame" x="0.0" y="294.5" width="76" height="81.5"/>
+                                                    <rect key="frame" x="0.0" y="294.5" width="70.5" height="81.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-Ep-vkh">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-Ep-vkh">
                                                             <rect key="frame" x="0.0" y="0.0" width="70.5" height="40.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pK-zz-DH3">
-                                                            <rect key="frame" x="0.0" y="40.5" width="76" height="41"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateLabel" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pK-zz-DH3">
+                                                            <rect key="frame" x="0.0" y="40.5" width="62" height="41"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -59,7 +59,7 @@
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1w-7x-81g">
                                                     <rect key="frame" x="321" y="280" width="50" height="33"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                     <state key="normal" title="..."/>
                                                     <connections>
                                                         <action selector="optionsButtonPressed:" destination="mzk-Vb-jJu" eventType="touchUpInside" id="TCt-jX-LXE"/>
@@ -74,7 +74,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Rka-Rb-ohd" secondAttribute="trailing" id="ldX-Bf-xfZ"/>
                                                 <constraint firstItem="o1f-6r-bat" firstAttribute="top" secondItem="Rka-Rb-ohd" secondAttribute="bottom" constant="10" id="oQj-c3-Xoz"/>
                                                 <constraint firstItem="Rka-Rb-ohd" firstAttribute="top" secondItem="zo3-Br-iH4" secondAttribute="top" id="oTk-U0-92t"/>
-                                                <constraint firstAttribute="bottom" secondItem="X1w-7x-81g" secondAttribute="bottom" id="rgz-0I-fRK"/>
+                                                <constraint firstItem="X1w-7x-81g" firstAttribute="top" secondItem="Rka-Rb-ohd" secondAttribute="bottom" constant="-5" id="xKu-kT-PMA"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="379" height="376"/>
