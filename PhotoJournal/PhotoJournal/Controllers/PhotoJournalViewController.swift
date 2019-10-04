@@ -31,7 +31,6 @@ class PhotoJournalViewController: UIViewController {
     }
 
     private func configureCollectionView() {
-        photoJournalCollectionView.delegate = self
         photoJournalCollectionView.dataSource = self
     }
     
@@ -43,17 +42,6 @@ class PhotoJournalViewController: UIViewController {
         }
     }
 
-}
-
-extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
-        
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            
-
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width)
-        }
-         
-    
 }
 
 extension PhotoJournalViewController: UICollectionViewDataSource {
