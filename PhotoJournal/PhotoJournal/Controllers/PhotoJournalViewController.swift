@@ -70,7 +70,8 @@ extension PhotoJournalViewController: PhotoCellDelegate {
     func showActionSheet(tag: Int) {
         let selectedPhoto = self.photoJournal[tag]
         
-        let optionsMenu = UIAlertController.init(title: "Options", message: "Select an option", preferredStyle: .actionSheet)
+        
+        let optionsMenu = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let deleteAction = UIAlertAction.init(title: "Delete", style: .destructive) { (action) in
             // add delete functionality from persistence
