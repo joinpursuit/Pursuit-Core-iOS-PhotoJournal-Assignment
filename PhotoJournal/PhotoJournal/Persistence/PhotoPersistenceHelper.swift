@@ -23,4 +23,12 @@ struct PhotoPersistenceHelper {
         return try persistenceHelper.getObjects()
     }
     
+    func deletePhotoJournal(withTitle: String) throws {
+        do {
+            let photoJournal = try getPhotoJournal()
+            let newPhotoJournal = photoJournal.filter { $0.title != withTitle}
+            try persistenceHelper.replace(elements: newPhotoJournal)
+        }
+    }
+    
 }

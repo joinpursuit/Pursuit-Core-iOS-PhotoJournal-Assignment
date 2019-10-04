@@ -10,7 +10,7 @@ import UIKit
 
 class EditPhotoViewController: UIViewController {
 
-    // To do - figure out textview and test persistence in save button
+    // TODO: Set up permissions for library and camera
     
     @IBOutlet weak var titleTextView: UITextView!
     
@@ -57,6 +57,7 @@ class EditPhotoViewController: UIViewController {
 
     private func configureTextView() {
         titleTextView.delegate = self
+        titleTextView.textColor = .lightGray
     }
    
 }
@@ -87,8 +88,6 @@ extension EditPhotoViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if titleTextView.text == "Enter caption here" {
-            
-        }
+        titleTextView.text = ""
     }
 }
