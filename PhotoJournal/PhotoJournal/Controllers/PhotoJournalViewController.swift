@@ -49,7 +49,7 @@ extension PhotoJournalViewController: UICollectionViewDelegate {}
 
 extension PhotoJournalViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        photoJournal.count
+        return photoJournal.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

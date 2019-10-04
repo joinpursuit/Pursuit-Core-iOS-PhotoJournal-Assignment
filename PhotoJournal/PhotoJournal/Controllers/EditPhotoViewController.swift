@@ -10,32 +10,53 @@ import UIKit
 
 class EditPhotoViewController: UIViewController {
 
-    @IBOutlet weak var titleTextField: UITextView!
+    // To do - figure out textview and test persistence in save button
+    
+    @IBOutlet weak var titleTextView: UITextView!
+    
     @IBOutlet weak var photoImageView: UIImageView!
+    private var imagePickerViewController = UIImagePickerController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        configureTextView()
+        configureImagePicker()
+        configureStockImage()
     }
     
     @IBAction func savePhotoButtonPressed(_ sender: UIButton) {
-//        guard let imageData = self.photoImageView.image?.jpegData(compressionQuality: 0.5) else { return }
-//                 let photoInfo = PhotoJournal(id: <#T##Int#>, photoData: imageData, title: <#T##String#>, date: <#T##String#>)
-//
-//
-//                 try? PhotoPersistenceHelper.manager.saveProfileImage(info: profileImageInfo)
+        
+        guard let imageData = self.photoImageView.image?.jpegData(compressionQuality: 0.5) else { return }
+        let photoInfo = PhotoJournal(photoData: imageData, title:
+            titleTextView.text, date: Date.init().description)
+
+        try? PhotoPersistenceHelper.manager.savePhotoEntry(photo: photoInfo)
+        
+        
+        
     }
     
     @IBAction func addPhotoFromLibraryButtonPressed(_ sender: UIButton) {
-        let imagePickerViewController = UIImagePickerController()
-             imagePickerViewController.delegate = self
-             imagePickerViewController.sourceType = .photoLibrary
+        imagePickerViewController.sourceType = .photoLibrary
         
         present(imagePickerViewController, animated: true)
+        
     }
     
+    private func configureStockImage() {
+        photoImageView.image = UIImage(named: "noImage")
+        photoImageView.backgroundColor = .lightGray
+    }
+    
+    private func configureImagePicker() {
+        imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.delegate = self
+    }
+
+    private func configureTextView() {
+        titleTextView.delegate = self
+    }
    
 }
 
@@ -55,7 +76,13 @@ extension EditPhotoViewController: UIImagePickerControllerDelegate, UINavigation
         }
         
         dismiss(animated: true, completion: nil)
-            
         
     }
+}
+
+extension EditPhotoViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+       
+    }
+    
 }
