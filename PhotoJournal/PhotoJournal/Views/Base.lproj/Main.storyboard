@@ -61,6 +61,9 @@
                                                     <rect key="frame" x="321" y="280" width="50" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <state key="normal" title="..."/>
+                                                    <connections>
+                                                        <action selector="optionsButtonPressed:" destination="mzk-Vb-jJu" eventType="touchUpInside" id="TCt-jX-LXE"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -77,6 +80,7 @@
                                         <size key="customSize" width="379" height="376"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="6pK-zz-DH3" id="JMq-q8-cCn"/>
+                                            <outlet property="optionsButton" destination="X1w-7x-81g" id="YiR-dn-wo2"/>
                                             <outlet property="photoImageView" destination="Rka-Rb-ohd" id="5tm-1w-Ve6"/>
                                             <outlet property="titleLabel" destination="0wN-Ep-vkh" id="Inx-TH-C0L"/>
                                         </connections>

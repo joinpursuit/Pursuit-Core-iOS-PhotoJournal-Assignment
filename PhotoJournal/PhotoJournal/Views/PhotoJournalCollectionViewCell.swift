@@ -13,6 +13,13 @@ class PhotoJournalCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var optionsButton: UIButton!
+    
+    weak var delegate: PhotoCellDelegate?
+    
+    @IBAction func optionsButtonPressed(_ sender: UIButton) {
+        delegate?.showActionSheet(tag: sender.tag)
+    }
     
     
 }

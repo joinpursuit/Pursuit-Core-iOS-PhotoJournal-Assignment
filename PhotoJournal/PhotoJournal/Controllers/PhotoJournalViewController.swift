@@ -57,8 +57,43 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         cell.titleLabel.text = currentPhotoEntry.title
         cell.dateLabel.text = currentPhotoEntry.date
         
+        cell.optionsButton.tag = indexPath.row
+        cell.delegate = self
+        
         return cell
     }
     
     
+}
+
+extension PhotoJournalViewController: PhotoCellDelegate {
+    func showActionSheet(tag: Int) {
+        let selectedPhoto = self.photoJournal[tag]
+        
+        let optionsMenu = UIAlertController.init(title: "Options", message: "Select an option", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction.init(title: "Delete", style: .destructive) { (action) in
+            // add delete functionality from persistence
+        }
+        
+        let editAction = UIAlertAction.init(title: "Edit", style: .default) { (action) in
+            // add edit functionality using persistence
+    
+        }
+        
+        let shareAction = UIAlertAction.init(title: "Share", style: .default) { (action) in
+            // add share functionality using persistence
+    
+        }
+        
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
+        
+        optionsMenu.addAction(deleteAction)
+        optionsMenu.addAction(editAction)
+        optionsMenu.addAction(shareAction)
+        optionsMenu.addAction(cancelAction)
+        
+        present(optionsMenu, animated: true, completion: nil)
+        
+    }
 }
