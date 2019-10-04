@@ -33,7 +33,7 @@ class EditPhotoViewController: UIViewController {
 
         try? PhotoPersistenceHelper.manager.savePhotoEntry(photo: photoInfo)
         
-        
+        navigationController?.popViewController(animated: true)
         
     }
     
