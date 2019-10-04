@@ -86,4 +86,9 @@ extension EditPhotoViewController: UITextViewDelegate {
        
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if titleTextView.text == "Enter caption here" {
+            
+        }
+    }
 }
