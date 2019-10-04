@@ -45,7 +45,16 @@ class PhotoJournalViewController: UIViewController {
 
 }
 
-extension PhotoJournalViewController: UICollectionViewDelegate {}
+extension PhotoJournalViewController: UICollectionViewDelegateFlowLayout {
+        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            
+
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.width)
+        }
+         
+    
+}
 
 extension PhotoJournalViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

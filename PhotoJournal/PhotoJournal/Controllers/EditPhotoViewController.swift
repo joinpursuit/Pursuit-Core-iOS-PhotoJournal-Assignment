@@ -23,6 +23,7 @@ class EditPhotoViewController: UIViewController {
         configureTextView()
         configureImagePicker()
         configureStockImage()
+    
     }
     
     @IBAction func savePhotoButtonPressed(_ sender: UIButton) {
