@@ -95,6 +95,7 @@ extension PhotoJournalViewController: PhotoCellDelegate {
             self.navigationController?.pushViewController(editVC, animated: true)
             
             editVC.currentPhotoEntry = selectedPhoto
+            editVC.currentTag = tag
     
         }
         

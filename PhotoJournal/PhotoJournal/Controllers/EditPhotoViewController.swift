@@ -16,6 +16,7 @@ class EditPhotoViewController: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     
     var currentPhotoEntry: PhotoJournal? = nil
+    var currentTag: Int? = nil
     
     private var imagePickerViewController = UIImagePickerController()
     
@@ -35,10 +36,20 @@ class EditPhotoViewController: UIViewController {
     @IBAction func savePhotoButtonPressed(_ sender: UIButton) {
         // TODO: - Add functionality to save over edited photo instead of creating new entry
         guard let imageData = self.photoImageView.image?.jpegData(compressionQuality: 0.5) else { return }
-        let photoInfo = PhotoJournal(photoData: imageData, title:
-            titleTextView.text, date: Date.init().description)
+        
+        if currentPhotoEntry == nil {
+            let newPhotoInfo = PhotoJournal(photoData: imageData, title:
+                      titleTextView.text, date: Date.init().description)
 
-        try? PhotoPersistenceHelper.manager.savePhotoEntry(photo: photoInfo)
+            try? PhotoPersistenceHelper.manager.savePhotoEntry(photo: newPhotoInfo)
+        } else {
+            if let currentPhotoEntry = currentPhotoEntry, let currentTag = currentTag {
+                let editedPhotoInfo = PhotoJournal(photoData: imageData, title:
+                    titleTextView.text, date: currentPhotoEntry.date)
+                
+                try? PhotoPersistenceHelper.manager.editPhotoJournal(at: currentTag, with: editedPhotoInfo)
+            }
+        }
         
         navigationController?.popViewController(animated: true)
         
@@ -101,5 +112,6 @@ extension EditPhotoViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         titleTextView.text = ""
+        titleTextView.textColor = .black
     }
 }
