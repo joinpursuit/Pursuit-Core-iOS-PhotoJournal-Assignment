@@ -16,20 +16,6 @@ struct PersistenceHelper<T: Codable> {
         return try PropertyListDecoder().decode([T].self, from: data)
     }
     
-    func getSingleObject() throws -> T? {
-        guard let data = FileManager.default.contents(atPath: url.path) else {
-            return nil
-        }
-        return try PropertyListDecoder().decode(T.self, from: data)
-    }
-    
-    func saveSingleObject(newElement: T) throws {
-        var element = try getSingleObject()
-        element = newElement
-        let serializedData = try PropertyListEncoder().encode(element)
-        try serializedData.write(to: url, options: Data.WritingOptions.atomic)
-    }
-    
     func save(newElement: T) throws {
         var elements = try getObjects()
         elements.append(newElement)
@@ -37,9 +23,18 @@ struct PersistenceHelper<T: Codable> {
         try serializedData.write(to: url, options: Data.WritingOptions.atomic)
     }
     
-    func replace(elements: [T]) throws {
-      let serializedData = try PropertyListEncoder().encode(elements)
-      try serializedData.write(to: url, options: Data.WritingOptions.atomic)
+    func delete(elementWith tag: Int) throws {
+        var elements = try getObjects()
+        elements.remove(at: tag)
+        let serializedData = try PropertyListEncoder().encode(elements)
+        try serializedData.write(to: url, options: Data.WritingOptions.atomic)
+    }
+    
+    func edit(elementWith tag: Int, newElement: T) throws {
+        var elements = try getObjects()
+        elements[tag] = newElement
+        let serializedData = try PropertyListEncoder().encode(elements)
+        try serializedData.write(to: url, options: Data.WritingOptions.atomic)
     }
     
     init(fileName: String) {

@@ -78,7 +78,7 @@ extension PhotoJournalViewController: PhotoCellDelegate {
         
         let deleteAction = UIAlertAction.init(title: "Delete", style: .destructive) { (action) in
             do {
-                try PhotoPersistenceHelper.manager.deletePhotoJournal(withTitle: selectedPhoto.title)
+                try PhotoPersistenceHelper.manager.deletePhotoJournal(with: tag)
                 self.loadPhotoJournal()
             } catch {
                 let alertVC = UIAlertController(title: "Error", message: "Could not delete photo entry!", preferredStyle: .alert)
