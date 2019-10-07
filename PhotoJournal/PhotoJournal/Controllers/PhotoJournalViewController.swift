@@ -100,7 +100,7 @@ extension PhotoJournalViewController: PhotoCellDelegate {
         }
         
         let shareAction = UIAlertAction.init(title: "Share", style: .default) { (action) in
-            let activityVC = UIActivityViewController(activityItems: ["Share Photo"], applicationActivities: nil)
+            let activityVC = UIActivityViewController(activityItems: [UIImage(data: self.photoJournal[tag].photoData), self.photoJournal[tag].title], applicationActivities: nil)
             
             self.present(activityVC, animated: true, completion: nil)
         }

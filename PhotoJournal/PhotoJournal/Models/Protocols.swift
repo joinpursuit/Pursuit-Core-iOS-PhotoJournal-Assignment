@@ -7,7 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PhotoCellDelegate: AnyObject {
     func showActionSheet(tag: Int)
+}
+
+protocol BackgroundColorDelegate: UIView {
+    func getBackgroundColor() -> UIColor
 }
