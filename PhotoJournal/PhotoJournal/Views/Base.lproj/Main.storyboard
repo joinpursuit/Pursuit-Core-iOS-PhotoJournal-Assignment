@@ -199,6 +199,7 @@
                         <outlet property="cameraButton" destination="d0u-US-Pff" id="God-Jq-aZ3"/>
                         <outlet property="photoImageView" destination="O5d-lP-Vnr" id="hQr-F9-EJs"/>
                         <outlet property="photoLibraryButton" destination="LnR-Nd-IGv" id="khQ-RC-L6g"/>
+                        <outlet property="saveButton" destination="fzj-Ea-NPl" id="nzZ-pk-ymy"/>
                         <outlet property="titleTextView" destination="aK9-BB-r9V" id="Vmb-tt-212"/>
                     </connections>
                 </viewController>

@@ -11,11 +11,13 @@ import UIKit
 class EditPhotoViewController: UIViewController {
 
     // TODO: Set up permissions for library and camera
+    // TODO: Add functionality to camera button
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var photoLibraryButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIButton!
     
     var currentPhotoEntry: PhotoJournal? = nil
     var currentTag: Int? = nil
@@ -64,13 +66,18 @@ class EditPhotoViewController: UIViewController {
         
         present(imagePickerViewController, animated: true)
         
+        saveButton.isEnabled = true
+        
     }
     
     private func loadEmptyEntry() {
-        photoImageView.image = UIImage(named: "noImage")
-        photoImageView.backgroundColor = .lightGray
         titleTextView.delegate = self
         titleTextView.textColor = .lightGray
+        
+        photoImageView.image = UIImage(named: "noImage")
+        photoImageView.backgroundColor = .lightGray
+
+        saveButton.isEnabled = false
     }
     
     
