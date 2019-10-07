@@ -15,18 +15,23 @@ struct PhotoPersistenceHelper {
         try persistenceHelper.save(newElement: newPhoto)
     }
 
+    func edit(newPhotoArray: [Photo]) throws {
+        try persistenceHelper.replace(elements: newPhotoArray)
+    }
+    
     func getPhotos() throws -> [Photo] {
         return try persistenceHelper.getObjects()
     }
     
-    func deletePhoto(withID: Int) throws {
+    func deletePhoto(withDate: Date) throws {
         do {
             let photos = try getPhotos()
-            let newPhotos = photos.filter { $0.id != withID }
+            let newPhotos = photos.filter { $0.date != withDate }
             try persistenceHelper.replace(elements: newPhotos)
         }
     }
-
+    
+    
     private let persistenceHelper = PersistenceHelper<Photo>(fileName: "photos.plist")
 
     private init() {}
