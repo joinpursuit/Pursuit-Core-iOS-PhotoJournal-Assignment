@@ -90,6 +90,11 @@ extension PhotoJournalViewController: PhotoCellDelegate {
         
         let editAction = UIAlertAction.init(title: "Edit", style: .default) { (action) in
             // add edit functionality using persistence
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let editVC = storyboard.instantiateViewController(identifier: "editPhotoSB") as EditPhotoViewController
+            self.navigationController?.pushViewController(editVC, animated: true)
+            
+            editVC.currentPhotoEntry = selectedPhoto
     
         }
         

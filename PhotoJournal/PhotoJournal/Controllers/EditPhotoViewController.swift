@@ -13,22 +13,27 @@ class EditPhotoViewController: UIViewController {
     // TODO: Set up permissions for library and camera
     
     @IBOutlet weak var titleTextView: UITextView!
-    
     @IBOutlet weak var photoImageView: UIImageView!
+    
+    var currentPhotoEntry: PhotoJournal? = nil
     
     private var imagePickerViewController = UIImagePickerController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTextView()
-        configureImagePicker()
-        configureStockImage()
+        
+        if currentPhotoEntry != nil {
+            loadCurrentEntry()
+        } else {
+            loadEmptyEntry()
+        }
     
+        configureImagePicker()
     }
     
     @IBAction func savePhotoButtonPressed(_ sender: UIButton) {
-        
+        // TODO: - Add functionality to save over edited photo instead of creating new entry
         guard let imageData = self.photoImageView.image?.jpegData(compressionQuality: 0.5) else { return }
         let photoInfo = PhotoJournal(photoData: imageData, title:
             titleTextView.text, date: Date.init().description)
@@ -46,19 +51,23 @@ class EditPhotoViewController: UIViewController {
         
     }
     
-    private func configureStockImage() {
+    private func loadEmptyEntry() {
         photoImageView.image = UIImage(named: "noImage")
         photoImageView.backgroundColor = .lightGray
+        titleTextView.delegate = self
+        titleTextView.textColor = .lightGray
     }
+    
     
     private func configureImagePicker() {
         imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
     }
-
-    private func configureTextView() {
-        titleTextView.delegate = self
-        titleTextView.textColor = .lightGray
+    
+    private func loadCurrentEntry() {
+        titleTextView.text = currentPhotoEntry?.title
+        photoImageView.image = UIImage(data: currentPhotoEntry!.photoData)
+        photoImageView.backgroundColor = .lightGray
     }
    
 }
