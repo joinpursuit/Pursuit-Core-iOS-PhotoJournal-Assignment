@@ -19,7 +19,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
-        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+              let settingsVC = storyBoard.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
+              self.navigationController?.pushViewController(settingsVC, animated: true)
+                settingsVC.delegate = self
     }
     
     var photos = [Photo]() {
@@ -54,6 +57,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photoCollectionOutlet.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! PhotoCollectionViewCell
+        
         cell.titleLabel.text = bs[indexPath.row]
         cell.captionLabel.text = desc[indexPath.row]
         cell.delegate = self
@@ -102,4 +106,8 @@ extension ViewController : PhotoCellDelegate {
         
         present(optionsMenu, animated: true, completion: nil)
     }
+}
+
+extension ViewController : SettingsDelegate {
+    
 }
