@@ -15,6 +15,7 @@ class EditPhotoViewController: UIViewController {
     @IBOutlet weak var titleTextView: UITextView!
     
     @IBOutlet weak var photoImageView: UIImageView!
+    
     private var imagePickerViewController = UIImagePickerController()
     
     
@@ -73,7 +74,9 @@ extension EditPhotoViewController: UIImagePickerControllerDelegate, UINavigation
         if let image = info[.originalImage] as? UIImage {
             photoImageView.image = image
         } else {
-            print("No original image")
+            let alertVC = UIAlertController(title: "Error", message: "Could not load image picker!", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alertVC, animated: true, completion: nil)
             
         }
         

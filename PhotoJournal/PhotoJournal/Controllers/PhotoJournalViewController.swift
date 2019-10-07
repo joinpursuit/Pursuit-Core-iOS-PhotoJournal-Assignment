@@ -38,9 +38,13 @@ class PhotoJournalViewController: UIViewController {
         do {
             photoJournal = try PhotoPersistenceHelper.manager.getPhotoJournal()
         } catch {
-            print(error)
+            let alertVC = UIAlertController(title: "Error", message: "Could not load photo journal!", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alertVC, animated: true, completion: nil)
         }
     }
+    
+    
 
 }
 
@@ -62,7 +66,7 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
+
     
 }
 
@@ -77,7 +81,9 @@ extension PhotoJournalViewController: PhotoCellDelegate {
                 try PhotoPersistenceHelper.manager.deletePhotoJournal(withTitle: selectedPhoto.title)
                 self.loadPhotoJournal()
             } catch {
-                print(error)
+                let alertVC = UIAlertController(title: "Error", message: "Could not delete photo entry!", preferredStyle: .alert)
+                alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alertVC, animated: true, completion: nil)
             }
             
         }
