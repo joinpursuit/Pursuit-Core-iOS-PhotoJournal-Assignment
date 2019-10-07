@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import UIKit
+
+struct Photo : Codable {
+    let title: String
+    let description: String
+    let id: Int
+}
