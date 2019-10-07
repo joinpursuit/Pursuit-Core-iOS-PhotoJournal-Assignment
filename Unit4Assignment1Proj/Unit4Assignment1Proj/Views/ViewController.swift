@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
 
@@ -15,51 +16,76 @@ class ViewController: UIViewController {
     @IBOutlet weak var photoCollectionOutlet: UICollectionView!
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let addPhotoVC = storyBoard.instantiateViewController(identifier: "AddPhotoViewController") as! AddPhotoViewController
+        self.present(addPhotoVC, animated: true, completion: nil)
+        addPhotoVC.delegate = self
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-              let settingsVC = storyBoard.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
-              self.navigationController?.pushViewController(settingsVC, animated: true)
-                settingsVC.delegate = self
+        let settingsVC = storyBoard.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+        settingsVC.delegate = self
     }
+    
     
     var photos = [Photo]() {
         didSet {
-            photoCollectionOutlet.reloadData()
+            DispatchQueue.main.async {
+                self.loadData()
+            }
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpProtocols()
+        loadData()
     }
-    
+
+
     private func setUpProtocols() {
         photoCollectionOutlet.delegate = self
         photoCollectionOutlet.dataSource = self
     }
+  
+    private func loadData() {
+        do {
+            photos = try PhotoPersistenceHelper.manager.getPhotos()
+           } catch {
+               print(error)
+            }
+        photoCollectionOutlet.reloadData()
+    }
     
-    var bs = ["1","2","3"]
-    var desc = ["something about this boi","some other thang", "yeeeeeerrrrrrR"]
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? PhotoCollectionViewCell, let indexPath = self.photoCollectionOutlet.indexPath(for: cell) {
+         let addPhotoVC = segue.destination as! AddPhotoViewController
+            
+            addPhotoVC.photoToBeEdited = photos[indexPath.row]
+    }
+    }
 }
-
+    
+    
 
 // MARK: - CollectionView Extensions
 
 extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = photoCollectionOutlet.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! PhotoCollectionViewCell
         
-        cell.titleLabel.text = bs[indexPath.row]
-        cell.captionLabel.text = desc[indexPath.row]
+        let photo = photos[indexPath.row]
+        cell.configureCell(photo: photo)
         cell.delegate = self
         cell.optionButtonOutlet.tag = indexPath.row
         
@@ -69,7 +95,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 350, height: 350)
     }
-
+    
 }
 
 // MARK: - Alert Controller
@@ -79,17 +105,23 @@ extension ViewController : PhotoCellDelegate {
         let optionsMenu = UIAlertController.init(title: "Options", message: "Pick an action", preferredStyle: .actionSheet)
         
         let editAction = UIAlertAction.init(title: "Edit", style: .default) { (action) in
-            //favorite using persistence
-//            let film = self.films[tag] //refactor this with photos
-//            print("My favorite film is \(film.title)")
-            print("edit")
+            let photo = self.photos[tag]
+            
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let addPhotoVC = storyBoard.instantiateViewController(identifier: "AddPhotoViewController") as! AddPhotoViewController
+            addPhotoVC.photoToBeEdited = photo
+            addPhotoVC.photoIndex = tag
+            addPhotoVC.imageName = photo.imageName
+            addPhotoVC.photos = self.photos
+            addPhotoVC.modalPresentationStyle = .currentContext
+            self.present(addPhotoVC, animated: true, completion: nil)
         }
         
         let deleteAction = UIAlertAction.init(title: "Delete", style: .destructive) { (action) in
-            //delete using persistence
-//            let film = self.films[tag]
-//            print("I just deleted \(film.title)")
-            print("delete")
+            let photo = self.photos[tag]
+            DispatchQueue.global(qos: .utility).async {
+                 try? PhotoPersistenceHelper.manager.deletePhoto(withDate: photo.date)
+            }
         }
         
         let shareAction = UIAlertAction.init(title: "Share", style: .default) { (action) in
@@ -103,11 +135,15 @@ extension ViewController : PhotoCellDelegate {
         optionsMenu.addAction(deleteAction)
         optionsMenu.addAction(cancelAction)
         
-        
         present(optionsMenu, animated: true, completion: nil)
     }
 }
 
 extension ViewController : SettingsDelegate {
+    
+   
+}
+
+extension ViewController : AddPhotoDelegate {
     
 }
