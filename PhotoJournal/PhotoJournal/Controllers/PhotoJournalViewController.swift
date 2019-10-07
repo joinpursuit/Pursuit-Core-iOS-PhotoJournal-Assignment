@@ -100,8 +100,9 @@ extension PhotoJournalViewController: PhotoCellDelegate {
         }
         
         let shareAction = UIAlertAction.init(title: "Share", style: .default) { (action) in
-            // add share functionality using persistence
-    
+            let activityVC = UIActivityViewController(activityItems: ["Share Photo"], applicationActivities: nil)
+            
+            self.present(activityVC, animated: true, completion: nil)
         }
         
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
