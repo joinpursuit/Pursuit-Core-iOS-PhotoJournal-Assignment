@@ -78,6 +78,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.068610203375657" green="0.47916005710659904" blue="0.140337957561702" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <size key="customSize" width="379" height="376"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="6pK-zz-DH3" id="JMq-q8-cCn"/>
