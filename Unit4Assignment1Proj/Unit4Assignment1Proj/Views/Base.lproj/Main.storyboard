@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="x6u-Ua-NGu" customClass="PhotoCollectionViewCell" customModule="Unit4Assignment1Proj" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photo" id="x6u-Ua-NGu" customClass="PhotoCollectionViewCell" customModule="Unit4Assignment1Proj" customModuleProvider="target">
                                         <rect key="frame" x="12" y="0.0" width="350" height="350"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="J4Q-aQ-4B5">
@@ -67,6 +67,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="G91-ec-OZA" id="LL6-v6-6ao"/>
                                             <outlet property="imageOutlet" destination="81a-JD-Ce7" id="RW5-6P-nwA"/>
+                                            <outlet property="optionButtonOutlet" destination="jgN-hK-Kr6" id="VLa-zs-dc2"/>
                                             <outlet property="titleLabel" destination="5bH-Fj-s9F" id="W5M-Qo-VmG"/>
                                         </connections>
                                     </collectionViewCell>

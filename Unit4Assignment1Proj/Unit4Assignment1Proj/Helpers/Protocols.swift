@@ -13,3 +13,6 @@ protocol PhotoCellDelegate: AnyObject {
     func showActionSheet(tag: Int)
 }
 
+protocol SettingsDelegate : AnyObject {
+    
+}
