@@ -14,6 +14,8 @@ class EditPhotoViewController: UIViewController {
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var photoLibraryButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     var currentPhotoEntry: PhotoJournal? = nil
     var currentTag: Int? = nil
@@ -26,6 +28,8 @@ class EditPhotoViewController: UIViewController {
         
         if currentPhotoEntry != nil {
             loadCurrentEntry()
+            photoLibraryButton.isEnabled = false
+            cameraButton.isEnabled = false
         } else {
             loadEmptyEntry()
         }
@@ -44,7 +48,7 @@ class EditPhotoViewController: UIViewController {
             try? PhotoPersistenceHelper.manager.savePhotoEntry(photo: newPhotoInfo)
         } else {
             if let currentPhotoEntry = currentPhotoEntry, let currentTag = currentTag {
-                let editedPhotoInfo = PhotoJournal(photoData: imageData, title:
+                let editedPhotoInfo = PhotoJournal(photoData: currentPhotoEntry.photoData, title:
                     titleTextView.text, date: currentPhotoEntry.date)
                 
                 try? PhotoPersistenceHelper.manager.editPhotoJournal(at: currentTag, with: editedPhotoInfo)
