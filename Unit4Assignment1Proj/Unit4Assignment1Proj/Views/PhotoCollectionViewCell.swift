@@ -14,13 +14,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var optionButtonOutlet: UIButton!
     
     @IBAction func optionButtonPressed(_ sender: UIButton) {
-        
+        delegate?.showActionSheet(tag: sender.tag)
     }
     
     
-    
+    weak var delegate : PhotoCellDelegate?
     
     
 }
