@@ -10,9 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var photoCollectionOutlet: UICollectionView!
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
