@@ -28,6 +28,7 @@ class EditPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if currentPhotoEntry != nil {
             loadCurrentEntry()
             photoLibraryButton.isEnabled = false
@@ -108,18 +109,13 @@ extension EditPhotoViewController: UIImagePickerControllerDelegate, UINavigation
             let alertVC = UIAlertController(title: "Error", message: "Could not load image picker!", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alertVC, animated: true, completion: nil)
-            
         }
-        
         dismiss(animated: true, completion: nil)
         
     }
 }
 
 extension EditPhotoViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-       
-    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         titleTextView.text = ""

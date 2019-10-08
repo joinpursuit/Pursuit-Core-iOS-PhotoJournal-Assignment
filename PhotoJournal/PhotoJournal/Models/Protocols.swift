@@ -13,6 +13,9 @@ protocol PhotoCellDelegate: AnyObject {
     func showActionSheet(tag: Int)
 }
 
-protocol BackgroundColorDelegate: UIView {
-    func getBackgroundColor() -> UIColor
+protocol SettingsDelegate: AnyObject {
+    func setVerticalScroll()
+    func setHorizontalScroll()
+//    func setScrollDirection(vertical: Bool)
+    func getBackgroundColor(color: UIColor)
 }

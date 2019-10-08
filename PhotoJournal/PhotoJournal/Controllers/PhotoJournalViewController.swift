@@ -9,11 +9,10 @@
 import UIKit
 
 class PhotoJournalViewController: UIViewController {
-
-    // TODO: Connect Settings button to SettingsVC
-    
     
     @IBOutlet weak var photoJournalCollectionView: UICollectionView!
+    
+    var verticalScrollDirection = true
     
     var photoJournal = [PhotoJournal]() {
         didSet {
@@ -30,6 +29,17 @@ class PhotoJournalViewController: UIViewController {
         loadPhotoJournal()
     }
 
+    @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        
+        let settingsVC = storyboard.instantiateViewController(identifier: "SettingsVC") as! SettingsViewController
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+        
+        settingsVC.delegate = self
+        settingsVC.isVerticalScroll = verticalScrollDirection
+    }
+    
+    
     private func configureCollectionView() {
         photoJournalCollectionView.dataSource = self
     }
@@ -89,7 +99,6 @@ extension PhotoJournalViewController: PhotoCellDelegate {
         }
         
         let editAction = UIAlertAction.init(title: "Edit", style: .default) { (action) in
-            // add edit functionality using persistence
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let editVC = storyboard.instantiateViewController(identifier: "editPhotoSB") as EditPhotoViewController
             self.navigationController?.pushViewController(editVC, animated: true)
@@ -117,3 +126,27 @@ extension PhotoJournalViewController: PhotoCellDelegate {
         
     }
 }
+
+extension PhotoJournalViewController: SettingsDelegate, UICollectionViewDelegateFlowLayout {
+    func setVerticalScroll() {
+        self.verticalScrollDirection = true
+        
+        if let flowLayout = photoJournalCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .vertical
+        }
+    }
+    
+    func setHorizontalScroll() {
+        self.verticalScrollDirection = false
+        
+        if let flowLayout = photoJournalCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                flowLayout.scrollDirection = .horizontal
+            }
+    }
+    
+    func getBackgroundColor(color: UIColor) {
+        
+    }
+    
+}
+
