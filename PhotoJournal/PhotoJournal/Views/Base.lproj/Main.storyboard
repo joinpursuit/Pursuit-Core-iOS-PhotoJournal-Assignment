@@ -216,36 +216,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vertical Scroll" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzW-5I-fYG">
-                                <rect key="frame" x="156" y="207" width="105" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7s-3X-26R">
+                                <rect key="frame" x="165" y="442.5" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGB-2g-fzw">
-                                <rect key="frame" x="183" y="236" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vertical Scroll" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzW-5I-fYG">
+                                <rect key="frame" x="154.5" y="330.5" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGB-2g-fzw">
+                                <rect key="frame" x="182.5" y="361.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchScrollDirectionChanged:" destination="S5y-02-xtY" eventType="valueChanged" id="Ea9-ei-xRa"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UNS-tz-RON">
-                                <rect key="frame" x="184" y="402" width="49" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bcs-aL-eMJ">
+                                <rect key="frame" x="20" y="151" width="110" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UNS-tz-RON">
+                                <rect key="frame" x="182.5" y="473.5" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchDarkModeChanged:" destination="S5y-02-xtY" eventType="valueChanged" id="mV8-HU-LgH"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7s-3X-26R">
-                                <rect key="frame" x="165" y="373" width="84" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fzW-5I-fYG" firstAttribute="centerX" secondItem="RGB-2g-fzw" secondAttribute="centerX" id="3SB-k0-NdU"/>
+                            <constraint firstItem="w7s-3X-26R" firstAttribute="centerY" secondItem="YZY-Ee-3B7" secondAttribute="centerY" id="U4N-d2-n0h"/>
+                            <constraint firstItem="w7s-3X-26R" firstAttribute="centerX" secondItem="YZY-Ee-3B7" secondAttribute="centerX" id="Vfj-XG-YOV"/>
+                            <constraint firstItem="w7s-3X-26R" firstAttribute="top" secondItem="RGB-2g-fzw" secondAttribute="bottom" constant="50" id="Vz3-5X-Erw"/>
+                            <constraint firstItem="RGB-2g-fzw" firstAttribute="top" secondItem="fzW-5I-fYG" secondAttribute="bottom" constant="10" id="ZyY-Bd-Fcu"/>
+                            <constraint firstItem="RGB-2g-fzw" firstAttribute="centerX" secondItem="w7s-3X-26R" secondAttribute="centerX" id="juh-Z5-LRf"/>
+                            <constraint firstItem="UNS-tz-RON" firstAttribute="centerX" secondItem="w7s-3X-26R" secondAttribute="centerX" id="o4Q-en-EkD"/>
+                            <constraint firstItem="UNS-tz-RON" firstAttribute="top" secondItem="w7s-3X-26R" secondAttribute="bottom" constant="10" id="x9W-LB-kCd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YZY-Ee-3B7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="PU0-ti-KMI"/>
