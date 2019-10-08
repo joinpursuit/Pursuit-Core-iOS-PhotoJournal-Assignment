@@ -17,5 +17,6 @@ protocol SettingsDelegate: AnyObject {
     func setVerticalScroll()
     func setHorizontalScroll()
 
-    func getBackgroundColor(color: UIColor)
+    func darkModeOn()
+    func darkModeOff()
 }

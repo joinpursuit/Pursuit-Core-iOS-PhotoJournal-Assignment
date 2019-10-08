@@ -15,6 +15,7 @@ class PhotoJournalViewController: UIViewController {
     
     // MARK: - Internal Properties
     var verticalScrollDirection = true
+    var darkModeIsOn = false
 
     var photoJournal = [PhotoJournal]() {
         didSet {
@@ -41,6 +42,7 @@ class PhotoJournalViewController: UIViewController {
         
         settingsVC.delegate = self
         settingsVC.isVerticalScroll = verticalScrollDirection
+        settingsVC.darkModeOn = darkModeIsOn
     }
     
     // MARK: - Private Methods
@@ -147,8 +149,14 @@ extension PhotoJournalViewController: SettingsDelegate, UICollectionViewDelegate
             }
     }
     
-    func getBackgroundColor(color: UIColor) {
-        
+    func darkModeOn() {
+        self.photoJournalCollectionView.backgroundColor = .black
+        self.darkModeIsOn = true
+    }
+    
+    func darkModeOff() {
+        self.photoJournalCollectionView.backgroundColor = .lightGray
+        self.darkModeIsOn = false
     }
     
 }

@@ -12,9 +12,11 @@ class SettingsViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var scrollSwitch: UISwitch!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     
     // MARK: - Internal Properties
     var isVerticalScroll = true
+    var darkModeOn = false
 
     weak var delegate: SettingsDelegate?
     
@@ -30,6 +32,13 @@ class SettingsViewController: UIViewController {
         case false:
             scrollSwitch.isOn = false
         }
+        
+        switch darkModeOn {
+        case true:
+            darkModeSwitch.isOn = true
+        case false:
+            darkModeSwitch.isOn = false
+        }
     }
     
     // MARK: - IBActions
@@ -42,6 +51,14 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func switchDarkModeChanged(_ sender: UISwitch) {
+        switch sender.isOn {
+        case true:
+            setDarkMode(setting: .on)
+        case false:
+            setDarkMode(setting: .off)
+        }
+    }
     // MARK: - Private Methods
     private func setVerticalScroll(setting: ScrollDirection) {
         switch setting {
@@ -49,6 +66,15 @@ class SettingsViewController: UIViewController {
             delegate?.setVerticalScroll()
         case .horizontal:
             delegate?.setHorizontalScroll()
+        }
+    }
+    
+    private func setDarkMode(setting: DarkMode) {
+        switch setting {
+        case .on:
+            delegate?.darkModeOn()
+        case .off:
+            delegate?.darkModeOff()
         }
     }
     

@@ -230,9 +230,12 @@
                                     <action selector="switchScrollDirectionChanged:" destination="S5y-02-xtY" eventType="valueChanged" id="Ea9-ei-xRa"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UNS-tz-RON">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UNS-tz-RON">
                                 <rect key="frame" x="184" y="402" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchDarkModeChanged:" destination="S5y-02-xtY" eventType="valueChanged" id="mV8-HU-LgH"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7s-3X-26R">
                                 <rect key="frame" x="165" y="373" width="84" height="21"/>
@@ -247,6 +250,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="PU0-ti-KMI"/>
                     <connections>
+                        <outlet property="darkModeSwitch" destination="UNS-tz-RON" id="04S-NW-xRk"/>
                         <outlet property="scrollSwitch" destination="RGB-2g-fzw" id="PtX-q3-wEP"/>
                     </connections>
                 </viewController>
