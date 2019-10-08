@@ -10,16 +10,15 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    weak var delegate: SettingsDelegate?
+    // MARK: - IBOutlets
     @IBOutlet weak var scrollSwitch: UISwitch!
     
+    // MARK: - Internal Properties
     var isVerticalScroll = true
+
+    weak var delegate: SettingsDelegate?
     
-    enum ScrollDirection {
-        case vertical
-        case horizontal
-    }
-    
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -33,6 +32,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
     @IBAction func switchScrollDirectionChanged(_ sender: UISwitch) {
         switch sender.isOn {
         case true:
@@ -42,6 +42,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    // MARK: - Private Methods
     private func setVerticalScroll(setting: ScrollDirection) {
         switch setting {
         case .vertical:

@@ -10,16 +10,19 @@ import UIKit
 
 class PhotoJournalViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var photoJournalCollectionView: UICollectionView!
     
+    // MARK: - Internal Properties
     var verticalScrollDirection = true
-    
+
     var photoJournal = [PhotoJournal]() {
         didSet {
             photoJournalCollectionView.reloadData()
         }
     }
     
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
@@ -29,6 +32,7 @@ class PhotoJournalViewController: UIViewController {
         loadPhotoJournal()
     }
 
+    // MARK: - IBActions
     @IBAction func settingsButtonPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
@@ -39,7 +43,7 @@ class PhotoJournalViewController: UIViewController {
         settingsVC.isVerticalScroll = verticalScrollDirection
     }
     
-    
+    // MARK: - Private Methods
     private func configureCollectionView() {
         photoJournalCollectionView.dataSource = self
     }
@@ -53,11 +57,10 @@ class PhotoJournalViewController: UIViewController {
             present(alertVC, animated: true, completion: nil)
         }
     }
-    
-    
 
 }
 
+// MARK: - CollectionView Delegate Methods
 extension PhotoJournalViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoJournal.count
@@ -76,10 +79,9 @@ extension PhotoJournalViewController: UICollectionViewDataSource {
         
         return cell
     }
-
-    
 }
 
+// MARK: - PhotoCell Delegate Methods
 extension PhotoJournalViewController: PhotoCellDelegate {
     func showActionSheet(tag: Int) {
         let selectedPhoto = self.photoJournal[tag]
@@ -127,6 +129,7 @@ extension PhotoJournalViewController: PhotoCellDelegate {
     }
 }
 
+// MARK: - Settings Delegate Methods
 extension PhotoJournalViewController: SettingsDelegate, UICollectionViewDelegateFlowLayout {
     func setVerticalScroll() {
         self.verticalScrollDirection = true

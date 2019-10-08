@@ -16,6 +16,6 @@ protocol PhotoCellDelegate: AnyObject {
 protocol SettingsDelegate: AnyObject {
     func setVerticalScroll()
     func setHorizontalScroll()
-//    func setScrollDirection(vertical: Bool)
+
     func getBackgroundColor(color: UIColor)
 }

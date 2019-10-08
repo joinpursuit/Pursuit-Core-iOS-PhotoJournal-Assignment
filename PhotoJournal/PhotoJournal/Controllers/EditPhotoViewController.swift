@@ -13,22 +13,23 @@ class EditPhotoViewController: UIViewController {
     // TODO: Set up permissions for library and camera
     // TODO: Add functionality to camera button
     
+    // MARK: - IBOutlets
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var photoLibraryButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIButton!
     
+    // MARK: - Internal Properties
     var currentPhotoEntry: PhotoJournal? = nil
     var currentTag: Int? = nil
     
     private var imagePickerViewController = UIImagePickerController()
     
-    
+    // MARK: - Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
         if currentPhotoEntry != nil {
             loadCurrentEntry()
             photoLibraryButton.isEnabled = false
@@ -36,10 +37,10 @@ class EditPhotoViewController: UIViewController {
         } else {
             loadEmptyEntry()
         }
-    
         configureImagePicker()
     }
     
+    // MARK: - IBActions
     @IBAction func savePhotoButtonPressed(_ sender: UIButton) {
         // TODO: - Add functionality to save over edited photo instead of creating new entry
         guard let imageData = self.photoImageView.image?.jpegData(compressionQuality: 0.5) else { return }
@@ -71,6 +72,7 @@ class EditPhotoViewController: UIViewController {
         
     }
     
+    // MARK: - Private Methods
     private func loadEmptyEntry() {
         titleTextView.delegate = self
         titleTextView.textColor = .lightGray
@@ -80,7 +82,6 @@ class EditPhotoViewController: UIViewController {
 
         saveButton.isEnabled = false
     }
-    
     
     private func configureImagePicker() {
         imagePickerViewController = UIImagePickerController()
@@ -95,6 +96,7 @@ class EditPhotoViewController: UIViewController {
    
 }
 
+// MARK: - ImagePicker Delegate Methods
 extension EditPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -115,6 +117,7 @@ extension EditPhotoViewController: UIImagePickerControllerDelegate, UINavigation
     }
 }
 
+// MARK: - TextView Delegate Methods
 extension EditPhotoViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
