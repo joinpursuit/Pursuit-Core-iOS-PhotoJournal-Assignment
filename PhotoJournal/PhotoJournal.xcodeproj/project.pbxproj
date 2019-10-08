@@ -19,6 +19,7 @@
 		EA4D03F72346A148009FDE81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0A923450AFD00D6E745 /* AppDelegate.swift */; };
 		EA4D03FD2347E18F009FDE81 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D03FC2347E18F009FDE81 /* Protocols.swift */; };
 		EA4D0400234C3020009FDE81 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D03FF234C3020009FDE81 /* Enums.swift */; };
+		EA4D0402234C3752009FDE81 /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4D0401234C3752009FDE81 /* UserDefaultsWrapper.swift */; };
 		EA69D0AA23450AFD00D6E745 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0A923450AFD00D6E745 /* AppDelegate.swift */; };
 		EA69D0AC23450AFD00D6E745 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */; };
 		EA69D0AE23450AFD00D6E745 /* PhotoJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69D0AD23450AFD00D6E745 /* PhotoJournalViewController.swift */; };
@@ -48,6 +49,7 @@
 		EA4D03F223469E1D009FDE81 /* TestPersitenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPersitenceHelper.swift; sourceTree = "<group>"; };
 		EA4D03FC2347E18F009FDE81 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EA4D03FF234C3020009FDE81 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		EA4D0401234C3752009FDE81 /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsWrapper.swift; path = PhotoJournal/Persistence/UserDefaultsWrapper.swift; sourceTree = SOURCE_ROOT; };
 		EA69D0A623450AFD00D6E745 /* PhotoJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69D0A923450AFD00D6E745 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA69D0AB23450AFD00D6E745 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				EA4D03EA23469451009FDE81 /* PersistenceManager.swift */,
 				EA4D03EC23469509009FDE81 /* PhotoPersistenceHelper.swift */,
+				EA4D0401234C3752009FDE81 /* UserDefaultsWrapper.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				EA4D03F123469C70009FDE81 /* PhotoJournalCollectionViewCell.swift in Sources */,
 				EA69D0AE23450AFD00D6E745 /* PhotoJournalViewController.swift in Sources */,
 				EA69D0AA23450AFD00D6E745 /* AppDelegate.swift in Sources */,
+				EA4D0402234C3752009FDE81 /* UserDefaultsWrapper.swift in Sources */,
 				EA69D0AC23450AFD00D6E745 /* SceneDelegate.swift in Sources */,
 				EA4D03FD2347E18F009FDE81 /* Protocols.swift in Sources */,
 				EA4D03EB23469451009FDE81 /* PersistenceManager.swift in Sources */,

@@ -14,8 +14,16 @@ class PhotoJournalViewController: UIViewController {
     @IBOutlet weak var photoJournalCollectionView: UICollectionView!
     
     // MARK: - Internal Properties
-    var verticalScrollDirection = true
-    var darkModeIsOn = false
+    var verticalScrollDirection = true {
+        didSet {
+            UserDefaultsWrapper.manager.store(scrollDirection: verticalScrollDirection)
+        }
+    }
+    var darkModeIsOn = false {
+        didSet {
+            UserDefaultsWrapper.manager.store(darkMode: darkModeIsOn)
+        }
+    }
 
     var photoJournal = [PhotoJournal]() {
         didSet {
@@ -27,6 +35,7 @@ class PhotoJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        loadUserDefaults()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +66,16 @@ class PhotoJournalViewController: UIViewController {
             let alertVC = UIAlertController(title: "Error", message: "Could not load photo journal!", preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             present(alertVC, animated: true, completion: nil)
+        }
+    }
+    
+    private func loadUserDefaults() {
+        if let shouldDarkMode = UserDefaultsWrapper.manager.getColorMode() {
+            darkModeIsOn = shouldDarkMode
+        }
+        
+        if let shouldVerticalScroll = UserDefaultsWrapper.manager.getScrollDirection() {
+            verticalScrollDirection = shouldVerticalScroll
         }
     }
 
