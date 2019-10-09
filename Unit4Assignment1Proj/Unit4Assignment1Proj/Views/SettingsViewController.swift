@@ -23,10 +23,12 @@ class SettingsViewController: UIViewController {
             self.verticalScroll = true
             self.scrollDirectionLabel.text = "Vertical"
             setVerticalScroll(setting: .on)
+            UserDefaults.standard.set(true, forKey: "VerticalScroll")
         case false:
             self.verticalScroll = false
             self.scrollDirectionLabel.text = "Horizontal"
             setVerticalScroll(setting: .off)
+            UserDefaults.standard.set(false, forKey: "VerticalScroll")
         }
     }
     
@@ -37,10 +39,12 @@ class SettingsViewController: UIViewController {
             self.darkModeisOn = true
             formatColors(darkModeIsOn: darkModeisOn)
             setDarkMode(setting: .on)
+            UserDefaults.standard.set(true, forKey: "DarkMode")
         case false:
             self.darkModeisOn = false
             formatColors(darkModeIsOn: darkModeisOn)
             setDarkMode(setting: .off)
+            UserDefaults.standard.set(false, forKey: "DarkMode")
         }
     }
     

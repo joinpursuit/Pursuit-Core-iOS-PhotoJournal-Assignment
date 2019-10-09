@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setUpProtocols()
         loadData()
-        
+        loadDefaults()
         
     }
 
@@ -65,6 +65,23 @@ class ViewController: UIViewController {
                print(error)
             }
         photoCollectionOutlet.reloadData()
+    }
+    
+    private func loadDefaults() {
+        if let userScroll = UserDefaults.standard.value(forKey: "VerticalScroll") as? Bool {
+            if userScroll {
+                verticalScrollOn()
+            } else {
+                verticalScrollOff()
+            }
+        }
+        if let userMode = UserDefaults.standard.value(forKey: "DarkMode") as? Bool {
+            if userMode {
+                darkModeOn()
+            } else {
+                darkModeOff()
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
