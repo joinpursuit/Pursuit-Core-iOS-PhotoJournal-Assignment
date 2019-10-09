@@ -150,7 +150,11 @@ extension ViewController : PhotoCellDelegate {
         }
         
         let shareAction = UIAlertAction.init(title: "Share", style: .default) { (action) in
-            print("share")
+            let photo = self.photos[tag]
+            let path = getDocumentsDirectory().appendingPathComponent(photo.imageName)
+            let item = [UIImage(contentsOfFile: path.path)]
+            let ac = UIActivityViewController(activityItems: item as [Any], applicationActivities: nil)
+            self.present(ac, animated: true)
         }
         
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
