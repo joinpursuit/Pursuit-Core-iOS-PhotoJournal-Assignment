@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         let settingsVC = storyBoard.instantiateViewController(identifier: "SettingsViewController") as! SettingsViewController
         self.navigationController?.pushViewController(settingsVC, animated: true)
         settingsVC.delegate = self
+        settingsVC.verticalScroll = verticalScroll
     }
     
     
@@ -38,11 +39,15 @@ class ViewController: UIViewController {
         }
     }
     
+    var verticalScroll = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpProtocols()
         loadData()
+        
+        
     }
 
 
@@ -140,6 +145,21 @@ extension ViewController : PhotoCellDelegate {
 }
 
 extension ViewController : SettingsDelegate {
+    func verticalScrollOn() {
+        let layout = photoCollectionOutlet.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.scrollDirection = .vertical
+        verticalScroll = true
+        
+    }
+    
+    func verticalScrollOff() {
+        let layout = photoCollectionOutlet.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.scrollDirection = .horizontal
+        verticalScroll = false
+    }
+    
+   
+    
     
    
 }

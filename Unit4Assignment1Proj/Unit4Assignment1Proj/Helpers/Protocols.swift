@@ -14,5 +14,10 @@ protocol PhotoCellDelegate: AnyObject {
 }
 
 protocol SettingsDelegate : AnyObject {
+    func verticalScrollOn()
+    func verticalScrollOff()
+}
+
+protocol AddPhotoDelegate: AnyObject {
     
 }
