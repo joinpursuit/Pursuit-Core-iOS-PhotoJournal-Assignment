@@ -23,5 +23,10 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     weak var delegate : PhotoCellDelegate?
     
-    
+    func configureCell(photo: Photo) {
+        titleLabel.text = photo.title
+        captionLabel.text = photo.caption
+        let path = getDocumentsDirectory().appendingPathComponent(photo.imageName)
+        imageOutlet.image = UIImage(contentsOfFile: path.path)
+    }
 }

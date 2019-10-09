@@ -15,6 +15,13 @@
 		0BC71B722347DEFC00ABDA9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BC71B702347DEFC00ABDA9E /* LaunchScreen.storyboard */; };
 		0BC71B7D2347DEFC00ABDA9E /* Unit4Assignment1ProjTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71B7C2347DEFC00ABDA9E /* Unit4Assignment1ProjTests.swift */; };
 		0BC71B882347DEFC00ABDA9E /* Unit4Assignment1ProjUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71B872347DEFC00ABDA9E /* Unit4Assignment1ProjUITests.swift */; };
+		0BC71B962347F29C00ABDA9E /* PersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71B952347F29C00ABDA9E /* PersistenceHelper.swift */; };
+		0BC71B98234AAA1C00ABDA9E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71B97234AAA1C00ABDA9E /* PhotoCollectionViewCell.swift */; };
+		0BC71B9E234AB5A300ABDA9E /* PhotoStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71B9D234AB5A300ABDA9E /* PhotoStruct.swift */; };
+		0BC71BA0234ABF1500ABDA9E /* PhotoPersistenceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71B9F234ABF1500ABDA9E /* PhotoPersistenceHelper.swift */; };
+		0BC71BA2234AC10400ABDA9E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71BA1234AC10400ABDA9E /* Protocols.swift */; };
+		0BC71BA4234ACBE400ABDA9E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71BA3234ACBE400ABDA9E /* SettingsViewController.swift */; };
+		0BC71BA6234AE0D200ABDA9E /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC71BA5234AE0D200ABDA9E /* AddPhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		0BC71B832347DEFC00ABDA9E /* Unit4Assignment1ProjUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unit4Assignment1ProjUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BC71B872347DEFC00ABDA9E /* Unit4Assignment1ProjUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit4Assignment1ProjUITests.swift; sourceTree = "<group>"; };
 		0BC71B892347DEFC00ABDA9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BC71B952347F29C00ABDA9E /* PersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelper.swift; sourceTree = "<group>"; };
+		0BC71B97234AAA1C00ABDA9E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		0BC71B9D234AB5A300ABDA9E /* PhotoStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStruct.swift; sourceTree = "<group>"; };
+		0BC71B9F234ABF1500ABDA9E /* PhotoPersistenceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPersistenceHelper.swift; sourceTree = "<group>"; };
+		0BC71BA1234AC10400ABDA9E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		0BC71BA3234ACBE400ABDA9E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0BC71BA5234AE0D200ABDA9E /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +115,9 @@
 			children = (
 				0BC71B652347DEFB00ABDA9E /* AppDelegate.swift */,
 				0BC71B672347DEFB00ABDA9E /* SceneDelegate.swift */,
-				0BC71B692347DEFB00ABDA9E /* ViewController.swift */,
+				0BC71B9A234AAA2C00ABDA9E /* Views */,
+				0BC71B99234AAA2300ABDA9E /* Helpers */,
 				0BC71B6E2347DEFC00ABDA9E /* Assets.xcassets */,
-				0BC71B6B2347DEFB00ABDA9E /* Main.storyboard */,
 				0BC71B702347DEFC00ABDA9E /* LaunchScreen.storyboard */,
 				0BC71B732347DEFC00ABDA9E /* Info.plist */,
 			);
@@ -126,6 +140,29 @@
 				0BC71B892347DEFC00ABDA9E /* Info.plist */,
 			);
 			path = Unit4Assignment1ProjUITests;
+			sourceTree = "<group>";
+		};
+		0BC71B99234AAA2300ABDA9E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0BC71B9D234AB5A300ABDA9E /* PhotoStruct.swift */,
+				0BC71B9F234ABF1500ABDA9E /* PhotoPersistenceHelper.swift */,
+				0BC71B952347F29C00ABDA9E /* PersistenceHelper.swift */,
+				0BC71BA1234AC10400ABDA9E /* Protocols.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0BC71B9A234AAA2C00ABDA9E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0BC71B692347DEFB00ABDA9E /* ViewController.swift */,
+				0BC71BA5234AE0D200ABDA9E /* AddPhotoViewController.swift */,
+				0BC71BA3234ACBE400ABDA9E /* SettingsViewController.swift */,
+				0BC71B97234AAA1C00ABDA9E /* PhotoCollectionViewCell.swift */,
+				0BC71B6B2347DEFB00ABDA9E /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +297,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BC71B6A2347DEFB00ABDA9E /* ViewController.swift in Sources */,
+				0BC71B98234AAA1C00ABDA9E /* PhotoCollectionViewCell.swift in Sources */,
+				0BC71BA4234ACBE400ABDA9E /* SettingsViewController.swift in Sources */,
+				0BC71BA2234AC10400ABDA9E /* Protocols.swift in Sources */,
 				0BC71B662347DEFB00ABDA9E /* AppDelegate.swift in Sources */,
+				0BC71B9E234AB5A300ABDA9E /* PhotoStruct.swift in Sources */,
 				0BC71B682347DEFB00ABDA9E /* SceneDelegate.swift in Sources */,
+				0BC71BA6234AE0D200ABDA9E /* AddPhotoViewController.swift in Sources */,
+				0BC71BA0234ABF1500ABDA9E /* PhotoPersistenceHelper.swift in Sources */,
+				0BC71B962347F29C00ABDA9E /* PersistenceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

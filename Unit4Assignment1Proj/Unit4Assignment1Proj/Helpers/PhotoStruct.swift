@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import Photos
 
 struct Photo : Codable {
     let title: String
-    let description: String
-    let id: Int
+    let caption: String
+    let imageName: String
+    let date: Date
 }
