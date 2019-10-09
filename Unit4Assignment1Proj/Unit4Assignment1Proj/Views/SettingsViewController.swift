@@ -10,11 +10,14 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    @IBOutlet weak var scrollSlider: UISwitch!
+    @IBOutlet weak var scrollSwitch: UISwitch!
     @IBOutlet weak var scrollDirectionLabel: UILabel!
-    @IBOutlet weak var backgroundColorSlider: UISlider!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var darkModeLabel: UILabel!
+    @IBOutlet weak var currentScrollDirectionLabel: UILabel!
+    @IBOutlet weak var modeLabel: UILabel!
     
-    @IBAction func scrollSliderPressed(_ sender: UISwitch) {
+    @IBAction func scrollSwitchPressed(_ sender: UISwitch) {
         switch sender.isOn {
         case true:
             self.verticalScroll = true
@@ -27,14 +30,24 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func backgroundColorSliderDragged(_ sender: UISlider) {
-        
+    
+    @IBAction func darkModeSwitchPressed(_ sender: UISwitch) {
+        switch sender.isOn {
+        case true:
+            self.darkModeisOn = true
+            formatColors(darkModeIsOn: darkModeisOn)
+            setDarkMode(setting: .on)
+        case false:
+            self.darkModeisOn = false
+            formatColors(darkModeIsOn: darkModeisOn)
+            setDarkMode(setting: .off)
+        }
     }
     
     weak var delegate: SettingsDelegate?
     
     var verticalScroll = true
-       
+    var darkModeisOn = false
     
     override func viewWillAppear(_ animated: Bool) {
         setUpUI()
@@ -47,12 +60,12 @@ class SettingsViewController: UIViewController {
        
     }
     
-    enum VerticalScrollSetting : String {
+    enum Setting : String {
         case on
         case off
     }
     
-    private func setVerticalScroll(setting: VerticalScrollSetting) {
+    private func setVerticalScroll(setting: Setting) {
         switch setting {
         case .on:
             delegate?.verticalScrollOn()
@@ -61,13 +74,43 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    private func setDarkMode(setting: Setting) {
+        switch setting {
+        case .on:
+            delegate?.darkModeOn()
+        case .off:
+            delegate?.darkModeOff()
+        }
+    }
+    
+    private func formatColors(darkModeIsOn: Bool) {
+        switch darkModeIsOn {
+        case true:
+            view.backgroundColor = .black
+            currentScrollDirectionLabel.textColor = .white
+            scrollDirectionLabel.textColor = .white
+            darkModeLabel.textColor = .white
+            darkModeLabel.text = "On"
+            modeLabel.textColor = .white
+        case false:
+            view.backgroundColor = .white
+            currentScrollDirectionLabel.textColor = .black
+            scrollDirectionLabel.textColor = .black
+            darkModeLabel.textColor = .black
+            darkModeLabel.text = "Off"
+            modeLabel.textColor = .black
+        }
+    }
+    
     private func setUpUI() {
-        scrollSlider.isOn = verticalScroll
-               if verticalScroll {
-                   scrollDirectionLabel.text = "Vertical"
-               } else {
-                   scrollDirectionLabel.text = "Horizontal"
-               }
+        scrollSwitch.isOn = verticalScroll
+        darkModeSwitch.isOn = darkModeisOn
+        formatColors(darkModeIsOn: darkModeisOn)
+        if verticalScroll {
+            scrollDirectionLabel.text = "Vertical"
+        } else {
+            scrollDirectionLabel.text = "Horizontal"
+        }
     }
 }
 

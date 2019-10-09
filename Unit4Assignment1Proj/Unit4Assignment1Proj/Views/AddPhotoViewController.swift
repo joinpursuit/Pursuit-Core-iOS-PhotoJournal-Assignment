@@ -18,8 +18,13 @@ class AddPhotoViewController: UIViewController {
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var photoLibraryButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var camerabuttonOutlet: UIBarButtonItem!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    
     
     weak var delegate : AddPhotoDelegate?
+    
+    var darkModeEnabled = false
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -72,12 +77,8 @@ class AddPhotoViewController: UIViewController {
     var photos = [Photo]()
     var photoTitle = ""
     var caption = ""
-    var imageName = "" {
-        didSet {
-            print(imageName)
-        }
-    }
-   
+    var imageName = ""
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         if photoToBeEdited == nil {
@@ -92,6 +93,10 @@ class AddPhotoViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        formatColors(darkModeEnabled: darkModeEnabled)
+    }
+    
     private func setUpNewPost() {
         imageOutlet.image = UIImage(named: "default")
         titleTextView.text = "Enter title here..."
@@ -102,7 +107,19 @@ class AddPhotoViewController: UIViewController {
         captionTextView.delegate = self
     }
 
-    
+    private func formatColors(darkModeEnabled: Bool) {
+        switch darkModeEnabled {
+        case true:
+            view.backgroundColor = .black
+            titleLabel.textColor = .white
+            captionLabel.textColor = .white
+        case false:
+            view.backgroundColor = .white
+            titleLabel.textColor = .black
+            captionLabel.textColor = .black
+            
+        }
+    }
 }
 
 extension AddPhotoViewController : UITextViewDelegate {
@@ -110,15 +127,14 @@ extension AddPhotoViewController : UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
             textView.text = ""
-            textView.textColor = .black
-        }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        photoTitle = titleTextView.text
-        caption = captionTextView.text
+            if darkModeEnabled {
+            textView.textColor = .white
+            } else {
+                textView.textColor = .black
+            }
     }
    
+}
 }
 
 extension AddPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -147,3 +163,4 @@ public func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
 }
+

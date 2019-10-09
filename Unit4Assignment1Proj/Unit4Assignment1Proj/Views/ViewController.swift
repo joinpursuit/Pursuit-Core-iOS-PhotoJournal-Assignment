@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         let addPhotoVC = storyBoard.instantiateViewController(identifier: "AddPhotoViewController") as! AddPhotoViewController
         self.present(addPhotoVC, animated: true, completion: nil)
         addPhotoVC.delegate = self
+        addPhotoVC.darkModeEnabled = darkMode
     }
     
     @IBAction func settingsButtonPressed(_ sender: UIBarButtonItem) {
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(settingsVC, animated: true)
         settingsVC.delegate = self
         settingsVC.verticalScroll = verticalScroll
+        settingsVC.darkModeisOn = darkMode
     }
     
     
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
     }
     
     var verticalScroll = true
-    
+    var darkMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +108,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
 // MARK: - Alert Controller
 
 extension ViewController : PhotoCellDelegate {
+    
     func showActionSheet(tag: Int) {
         let optionsMenu = UIAlertController.init(title: "Options", message: "Pick an action", preferredStyle: .actionSheet)
         
@@ -145,6 +148,18 @@ extension ViewController : PhotoCellDelegate {
 }
 
 extension ViewController : SettingsDelegate {
+   
+    func darkModeOn() {
+        darkMode = true
+        view.backgroundColor = .black
+        
+    }
+    
+    func darkModeOff() {
+        darkMode = false
+        view.backgroundColor = .white
+    }
+    
     func verticalScrollOn() {
         let layout = photoCollectionOutlet.collectionViewLayout as! UICollectionViewFlowLayout
         layout.scrollDirection = .vertical
