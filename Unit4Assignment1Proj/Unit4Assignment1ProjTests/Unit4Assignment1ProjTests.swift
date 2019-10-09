@@ -7,7 +7,10 @@
 //
 
 import XCTest
-@testable import Unit4Assignment1Proj
+import Foundation
+import UIKit
+
+
 
 class Unit4Assignment1ProjTests: XCTestCase {
 
@@ -31,4 +34,17 @@ class Unit4Assignment1ProjTests: XCTestCase {
         }
     }
 
+    func testPersistence() {
+        struct Photos {
+            var title: String
+            var caption: String
+            var imageName: String
+            var date: Date
+        }
+        
+        let storePhoto = Photos(title: "test", caption: "test", imageName: "test", date: Date())
+        UserDefaults.standard.set(storePhoto.imageName, forKey: "Photo")
+        let retrievePhoto = UserDefaults.standard.value(forKey: "Photo") as! String
+        XCTAssertTrue(storePhoto.imageName == retrievePhoto)
+    }
 }
